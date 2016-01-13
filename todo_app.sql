@@ -27,3 +27,62 @@ ADD COLUMN completed_at TIMESTAMP;
 ALTER TABLE tasks 
 ALTER COLUMN updated_at SET DEFAULT now();
 
+INSERT INTO tasks (ID, title, description)
+VALUES (1,'Study SQL', 'Complete this exercise' );
+
+INSERT INTO tasks (ID, title, description)
+VALUES (2, 'Study PostgreSQL', 'Read all the documentation');
+
+SELECT *
+FROM tasks
+WHERE completed_at = NULL;
+
+UPDATE tasks 
+SET completed_at = NOW()
+WHERE id = 1;
+
+SELECT *
+FROM tasks
+WHERE completed_at = NULL;
+
+SELECT *
+FROM tasks
+ORDER BY created_at DESC;
+
+INSERT INTO tasks (ID, title, description)
+VALUES (3, 'mistake 1', 'a test entry');
+
+INSERT INTO tasks (ID, title, description)
+VALUES (4, 'mistake 2', 'another test entry');
+
+INSERT INTO tasks (ID, title, description)
+VALUES (5, 'third mistake', 'another test entry');
+
+SELECT title
+FROM tasks
+WHERE title similar to '%mistake%';
+
+DELETE 
+FROM tasks
+WHERE title = 'mistake 1'; 
+
+SELECT title, description
+From tasks
+WHERE title similar to '%mistake%';
+
+DELETE 
+FROM tasks
+WHERE title similar to '%mistake%';
+
+SELECT *
+FROM tasks
+ORDER BY title ASC;
+
+SELECT *
+From tasks;
+
+
+
+
+
+
